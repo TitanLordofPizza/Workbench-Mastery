@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+<Operation Class="PatchOperationAdd">
+  <xpath>Defs/ThingDef[thingClass="Pawn"]/comps</xpath>
+  <value>
+	<li>
+    <compClass>Mastery.Workbench.Data.Workbench_Mastery_Comp</compClass>
+    </li>
+  </value>
+</Operation>
+
+<Operation Class="PatchOperationAdd">
+  <xpath>Defs/StatDef[defName="WorkTableWorkSpeedFactor"]/parts</xpath>
+  <value>
+	<li Class="Mastery.Workbench.Data.StatParts.Workbench_StatPart">
+	<LevelKey>WorkbenchMastery</LevelKey>
+	<field>workSpeed</field>
+    </li>
+  </value>
+</Operation>
+
+<Operation Class="PatchOperationSequence">
+  <operations>
+	<li Class="PatchOperationConditional">
+	  <xpath>Defs/StatDef[defName="WorkTableEfficiencyFactor"]/parts</xpath>
+	  <nomatch Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="WorkTableEfficiencyFactor"]</xpath>
+		<value>
+		  <parts />
+		</value>
+	  </nomatch>
+	</li>
+	<li Class="PatchOperationAdd">
+	  <xpath>Defs/StatDef[defName="WorkTableEfficiencyFactor"]/parts</xpath>
+	  <value>
+		<li Class="Mastery.Workbench.Data.StatParts.Workbench_StatPart">
+		<LevelKey>WorkbenchMastery</LevelKey>
+		<field>workEfficiency</field>
+		</li>
+	  </value>
+	</li>
+  </operations>
+</Operation>
+
+<Operation Class="PatchOperationAdd">
+  <xpath>Defs/StatDef[defName="ResearchSpeedFactor"]/parts</xpath>
+  <value>
+	<li Class="Mastery.Workbench.Data.StatParts.Workbench_StatPart">
+	<LevelKey>WorkbenchMastery</LevelKey>
+	<field>workSpeed</field>
+    </li>
+  </value>
+</Operation>
+
+</Patch>

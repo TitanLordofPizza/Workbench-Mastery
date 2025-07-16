@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Workbench_Mastery_Tab>Workbenches</Workbench_Mastery_Tab>
+	
+	<workSpeed>Pawn Speed</workSpeed>
+	<workEfficiency>Pawn Efficiency</workEfficiency>
+	
+	<Workbench_Mastery_Settings>Enabled</Workbench_Mastery_Settings>
+	<Workbench_Mastery_Description_Settings>Do Workbenches Have Mastery?</Workbench_Mastery_Description_Settings>
+	
+	<Workbench_Mastery_Tab_Settings>Tab Enabled</Workbench_Mastery_Tab_Settings>
+	<Workbench_Mastery_Tab_Description_Settings>Do Workbenches Have A Tab For Mastery?</Workbench_Mastery_Tab_Description_Settings>
+	
+	<Workbench_Mastery_Searchbar_Settings>Searchbar</Workbench_Mastery_Searchbar_Settings>
+	
+	<Workbench_Mastery_Override_Settings>Override</Workbench_Mastery_Override_Settings>
+	<Workbench_Mastery_IsIgnored_Settings>Is Ignored</Workbench_Mastery_IsIgnored_Settings>
+	
+	<Workbench_Mastery_TitleCurve_Settings>Title</Workbench_Mastery_TitleCurve_Settings>
+	<Workbench_Mastery_ExpCurve_Settings>Exp</Workbench_Mastery_ExpCurve_Settings>
+	
+	<Workbench_Mastery_WorkSpeedCurve_Settings>Work Speed</Workbench_Mastery_WorkSpeedCurve_Settings>
+	<Workbench_Mastery_WorkSpeedType_Settings>Work Speed Type</Workbench_Mastery_WorkSpeedType_Settings>
+	<Workbench_Mastery_EfficiencyCurve_Settings>Efficiency</Workbench_Mastery_EfficiencyCurve_Settings>
+	<Workbench_Mastery_EfficiencyType_Settings>Efficiency Type</Workbench_Mastery_EfficiencyType_Settings>
+	
+</LanguageData>
