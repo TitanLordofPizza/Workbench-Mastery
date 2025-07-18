@@ -8,6 +8,7 @@ using Verse;
 using HarmonyLib;
 
 using Mastery.Core.Data.Level_Framework.Comps;
+using Mastery.Core.Data.Level_Framework.Extensions;
 
 using Mastery.Workbench.Data;
 using Mastery.Workbench.Settings;
@@ -38,9 +39,15 @@ namespace Mastery.Workbench.Patches
             {
                 harmony.Patch(typeof(Level_Comp_Manager).Method(nameof(Level_Comp_Manager.ActionEvent)), postfix: new HarmonyMethod(typeof(Comp_Manager_ActionEvent_Patch), nameof(Comp_Manager_ActionEvent_Patch.Postfix)));
 
-                harmony.Patch(typeof(Toils_Recipe).Method(nameof(Toils_Recipe.DoRecipeWork)), postfix: new HarmonyMethod(typeof(Toils_Recipe_DoWork_Patch), nameof(Toils_Recipe_DoWork_Patch.Postfix)));
+                if (Action_Manager.AddAction("Workbench", "DoRecipeWork") == false) // Does This ActionPoint Already Exist?
+                {
+                    harmony.Patch(typeof(Toils_Recipe).Method(nameof(Toils_Recipe.DoRecipeWork)), postfix: new HarmonyMethod(typeof(Toils_Recipe_DoWork_Patch), nameof(Toils_Recipe_DoWork_Patch.Postfix)));
+                }
 
-                harmony.Patch(typeof(JobDriver_Research).Method("MakeNewToils"), postfix: new HarmonyMethod(typeof(JobDriver_Research_MakeNewToils_Patch), nameof(JobDriver_Research_MakeNewToils_Patch.Postfix)));
+                if (Action_Manager.AddAction("Workbench", "MakeNewToils") == false) // Does This ActionPoint Already Exist?
+                {
+                    harmony.Patch(typeof(JobDriver_Research).Method("MakeNewToils"), postfix: new HarmonyMethod(typeof(JobDriver_Research_MakeNewToils_Patch), nameof(JobDriver_Research_MakeNewToils_Patch.Postfix)));
+                }
             }
             catch (System.Exception ex)
             {

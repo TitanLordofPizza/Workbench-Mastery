@@ -21,6 +21,7 @@ namespace Mastery.Workbench.Settings
         public Workbench_Settings()
         {
             Active = true;
+            TabActive = true;
 
             ExtensionBase = new Workbench_Mastery_Extension()
             {
@@ -71,7 +72,7 @@ namespace Mastery.Workbench.Settings
 
             ActionBase = new Level_Action_Extension()
             {
-                LevelKey = "WorkbenchMastery",
+                LevelKey = "Workbench_Mastery",
 
                 expGainCurve = new UtilityCurve()
                 {
@@ -89,7 +90,7 @@ namespace Mastery.Workbench.Settings
 
         #region Extension Settings
 
-        public override string LevelKey => "WorkbenchMastery";
+        public override string LevelKey => "Workbench_Mastery";
 
         private const string baseExtensionName = "masteryBase";
 
@@ -171,14 +172,14 @@ namespace Mastery.Workbench.Settings
 
             if (baseExtensionName.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                MasteryItem(viewRect, standard, baseExtensionName);
+                MasteryItem(standard, baseExtensionName);
             }
 
             foreach (var key in Configs.Keys) //Create List.
             {
                 if (isCollapsed.ContainsKey(key) == true && cachedNames[key].IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    MasteryItem(viewRect, standard, key);
+                    MasteryItem(standard, key);
                 }
             }
 
@@ -189,10 +190,12 @@ namespace Mastery.Workbench.Settings
             #endregion
         }
 
-        public void MasteryItem(Rect viewRect, Listing_Standard standard, string key)
+        public void MasteryItem(Listing_Standard standard, string key)
         {
             if (key != baseExtensionName)
+            {
                 standard.GapLine(UIUtility.mediumUISpacing);
+            }
 
             bool foldoutIsCollapsed = isCollapsed[key];
             UIUtility.Foldout(standard, cachedNames[key], ref foldoutIsCollapsed);
@@ -219,7 +222,7 @@ namespace Mastery.Workbench.Settings
             {
                 var masteryConfig = (key == baseExtensionName ? ExtensionBase : GetConfig(key));
 
-                var active = (key == baseExtensionName ? false : Configs[key].Override);
+                var active = key != baseExtensionName && Configs[key].Override;
 
                 if (key != baseExtensionName)
                 {
@@ -238,7 +241,7 @@ namespace Mastery.Workbench.Settings
                 masteryConfig.ExpCurve.Editor(standard, "Workbench_Mastery_ExpCurve_Settings".Translate(), active: active);
 
                 masteryConfig.workSpeedCurve.Editor(standard, "Workbench_Mastery_WorkSpeedCurve_Settings".Translate(), active: active);
-                UIUtility.Dropdown(standard, "Workbench_Mastery_WorkSpeedType_Settings".Translate(), (int)masteryConfig.workSpeedType, options, (int selected) =>
+                UIUtility.Dropdown(standard, "Workbench_Mastery_WorkSpeedType_Settings".Translate(), (int)masteryConfig.workSpeedType, options, selected =>
                 {
                     if (active == true)
                     {
@@ -247,7 +250,7 @@ namespace Mastery.Workbench.Settings
                 });
 
                 masteryConfig.workEfficiencyCurve.Editor(standard, "Workbench_Mastery_EfficiencyCurve_Settings".Translate(), active: active);
-                UIUtility.Dropdown(standard, "Workbench_Mastery_EfficiencyType_Settings".Translate(), (int)masteryConfig.workEfficiencyType, options, (int selected) =>
+                UIUtility.Dropdown(standard, "Workbench_Mastery_EfficiencyType_Settings".Translate(), (int)masteryConfig.workEfficiencyType, options, selected =>
                 {
                     if (active == true)
                     {

@@ -7,7 +7,7 @@ namespace Mastery.Workbench.Data
 {
     public class Workbench_Mastery_Comp : Level_Comp
     {
-        public override string LevelKey => "WorkbenchMastery";
+        public override string LevelKey => "Workbench_Mastery";
 
         private readonly Workbench_Tab _tab = new Workbench_Tab();
 

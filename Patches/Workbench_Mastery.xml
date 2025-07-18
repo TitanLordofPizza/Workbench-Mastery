@@ -15,7 +15,7 @@
   <xpath>Defs/StatDef[defName="WorkTableWorkSpeedFactor"]/parts</xpath>
   <value>
 	<li Class="Mastery.Workbench.Data.StatParts.Workbench_StatPart">
-	<LevelKey>WorkbenchMastery</LevelKey>
+	<LevelKey>Workbench_Mastery</LevelKey>
 	<field>workSpeed</field>
     </li>
   </value>
@@ -36,7 +36,7 @@
 	  <xpath>Defs/StatDef[defName="WorkTableEfficiencyFactor"]/parts</xpath>
 	  <value>
 		<li Class="Mastery.Workbench.Data.StatParts.Workbench_StatPart">
-		<LevelKey>WorkbenchMastery</LevelKey>
+		<LevelKey>Workbench_Mastery</LevelKey>
 		<field>workEfficiency</field>
 		</li>
 	  </value>
@@ -48,7 +48,7 @@
   <xpath>Defs/StatDef[defName="ResearchSpeedFactor"]/parts</xpath>
   <value>
 	<li Class="Mastery.Workbench.Data.StatParts.Workbench_StatPart">
-	<LevelKey>WorkbenchMastery</LevelKey>
+	<LevelKey>Workbench_Mastery</LevelKey>
 	<field>workSpeed</field>
     </li>
   </value>

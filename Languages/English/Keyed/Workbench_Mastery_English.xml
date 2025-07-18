@@ -3,8 +3,8 @@
 
 	<Workbench_Mastery_Tab>Workbenches</Workbench_Mastery_Tab>
 	
-	<workSpeed>Pawn Speed</workSpeed>
-	<workEfficiency>Pawn Efficiency</workEfficiency>
+	<Workbench_Mastery_workSpeed>Pawn Speed</Workbench_Mastery_workSpeed>
+	<Workbench_Mastery_workEfficiency>Pawn Efficiency</Workbench_Mastery_workEfficiency>
 	
 	<Workbench_Mastery_Settings>Enabled</Workbench_Mastery_Settings>
 	<Workbench_Mastery_Description_Settings>Do Workbenches Have Mastery?</Workbench_Mastery_Description_Settings>

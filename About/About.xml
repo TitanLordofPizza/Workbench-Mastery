@@ -6,7 +6,7 @@
 		<li>1.5</li>
 		<li>1.6</li>
 	</supportedVersions>
-	<modVersion>0.0.1</modVersion>
+	<modVersion>0.0.2</modVersion>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>
@@ -32,6 +32,6 @@
 		<li>Mastery.Core</li>
 	</loadAfter>
 	<packageId>Mastery.Workbench</packageId>
-	<description>Workbench Mastery uses Mastery Core to bring Proficiency to Rimworld's Workbenchs.</description>
+	<description>Workbench Mastery uses Mastery Core to bring Proficiency to Rimworld's Workbenches.</description>
 	<url>https://github.com/TitanLordofPizza/Workbench-Mastery/releases/latest</url>
 </ModMetaData>
