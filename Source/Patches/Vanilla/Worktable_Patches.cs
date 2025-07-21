@@ -22,14 +22,11 @@ namespace Mastery.Workbench.Patches.Vanilla
                     var driver = pawn.jobs.curDriver as JobDriver_DoBill;
                     var worktable = driver.BillGiver as Building_WorkTable;
 
-                    if (Workbench_Settings.Instance.ActiveConfig(worktable.def.defName) == true) // Is This Not Ignored?
-                    {
-                        originalTick?.Invoke(delta);
+                    originalTick?.Invoke(delta);
 
-                        if (driver.workLeft <= 0)
-                        {
-                            pawn.GetComp<Level_Comp_Manager>().ActionEvent("Workbench", worktable.def);
-                        }
+                    if (driver.workLeft <= 0)
+                    {
+                        pawn.GetComp<Level_Comp_Manager>().ActionEvent("Workbench", worktable.def);
                     }
                 };
             }

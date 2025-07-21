@@ -24,9 +24,8 @@ namespace Mastery.Workbench.Patches
             var harmony = Mod_Workbench_Mastery.harmony;
 
             var defs = DefDatabase<ThingDef>.AllDefsListForReading.Where(def =>
-            def.thingClass == typeof(Building_WorkTable) ||
-            def.thingClass == typeof(Building_WorkTable_HeatPush) ||
-            def.thingClass == typeof(Building_ResearchBench)); //Get all Workbenches.
+            typeof(Building_WorkTable).IsAssignableFrom(def.thingClass) == true ||
+            typeof(Building_ResearchBench).IsAssignableFrom(def.thingClass) == true); //Get all Workbenches.
 
             Mod_Workbench_Mastery.settings.Data.Initilize();
 

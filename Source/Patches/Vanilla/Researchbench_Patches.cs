@@ -33,12 +33,9 @@ namespace Mastery.Workbench.Patches.Vanilla
 
                             originalTick?.Invoke(delta);
 
-                            if (Workbench_Settings.Instance.ActiveConfig(__instance.job.targetA.Thing.def.defName) == true) // Is This Not Ignored?
+                            if (Find.ResearchManager.GetProgress(project) >= project.baseCost)
                             {
-                                if (Find.ResearchManager.GetProgress(project) >= project.baseCost)
-                                {
-                                    toil.actor.GetComp<Level_Comp_Manager>().ActionEvent("Workbench", __instance.job.targetA.Thing.def);
-                                }
+                                toil.actor.GetComp<Level_Comp_Manager>().ActionEvent("Workbench", __instance.job.targetA.Thing.def);
                             }
                         };
 
