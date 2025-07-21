@@ -9,21 +9,28 @@ namespace Mastery.Workbench.Data.StatParts
     {
         public override void TransformValue(StatRequest req, ref float val)
         {
-            req.Thing.Map.reservationManager.TryGetReserver(req.Thing, req.Thing.Faction, out pawn);
-
-            if (Workbench_Settings.Instance.ActiveOnThing(pawn, req.Thing.def.defName) == true)
+            pawn = null;
+            if (req.HasThing == true && req.Thing.Map != null && req.Thing.Faction != null)
             {
-                base.TransformValue(req, ref val);
+                req.Thing.Map.reservationManager.TryGetReserver(req.Thing, req.Thing.Faction, out pawn);
+
+                if (Workbench_Settings.Instance.ActiveOnThing(pawn, req.Thing.def.defName) == true)
+                {
+                    base.TransformValue(req, ref val);
+                }
             }
         }
 
         public override string ExplanationPart(StatRequest req)
         {
-            req.Thing.Map.reservationManager.TryGetReserver(req.Thing, req.Thing.Faction, out pawn);
-
-            if (Workbench_Settings.Instance.ActiveOnThing(pawn, req.Thing.def.defName) == true)
+            if (req.HasThing == true && req.Thing.Map != null && req.Thing.Faction != null)
             {
-                return base.ExplanationPart(req);
+                req.Thing.Map.reservationManager.TryGetReserver(req.Thing, req.Thing.Faction, out pawn);
+
+                if (Workbench_Settings.Instance.ActiveOnThing(pawn, req.Thing.def.defName) == true)
+                {
+                    return base.ExplanationPart(req);
+                }
             }
 
             return "";
